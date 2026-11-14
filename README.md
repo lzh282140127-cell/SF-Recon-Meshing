@@ -9,6 +9,16 @@ This repository contains the Windows/Qt source code. Local datasets, generated
 meshes, build products, research PDFs, and the prebuilt runtime bundle are not
 tracked.
 
+## Download the Windows demo
+
+Download the ready-to-run Windows x64 package from
+[v0.1-prebuilt-demo](https://github.com/lzh282140127-cell/SF-Recon-Meshing/releases/tag/v0.1-prebuilt-demo).
+The ZIP archive contains `FeedbackRTSfM.exe`, the required DLLs and Qt plugins,
+an example `settings.ini`, license notices, and usage instructions.
+
+Extract the complete archive before running the executable. Do not copy only
+`FeedbackRTSfM.exe`, because the program requires the bundled runtime DLLs.
+
 ## Pipeline
 
 ```text
