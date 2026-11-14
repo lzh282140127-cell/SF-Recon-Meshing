@@ -1,0 +1,51 @@
+# Local agent and IDE state
+.agents/
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.VC.db
+*.VC.opendb
+
+# Visual Studio and Qt build products
+**/x64/
+**/Debug/
+**/Release/
+**/build/
+**/out/
+**/qt/
+*.obj
+*.pdb
+*.ilk
+*.iobj
+*.ipdb
+*.tlog
+*.lastbuildstate
+*.recipe
+*.log
+*.exp
+*.lib
+*.dll
+*.exe
+
+# Local runtime bundle
+/Release/
+/dist/
+
+# Local datasets and generated meshes
+/models/*
+!/models/README.md
+*.ply
+
+# Papers are cited from their original sources instead of redistributed
+/paper/
+
+# User-specific runtime configuration
+/FeedBackSfMPrj/settings.ini
+/settings.ini
+
+# Operating-system files
+Thumbs.db
+Desktop.ini
+.DS_Store

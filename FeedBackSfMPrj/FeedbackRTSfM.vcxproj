@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FC0191C5-A3EF-4BCA-B61E-3350B0020AAB}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+    <ProjectName>FeedbackRTSfM</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>5.12.12_msvc2017_64</QtInstall>
+    <QtModules>core;opengl;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+    <QtDeployCopyFiles>false</QtDeployCopyFiles>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgXUseBuiltInApplocalDeps>true</VcpkgXUseBuiltInApplocalDeps>
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+    <VcpkgManifestRoot>$(MSBuildProjectDirectory)\..</VcpkgManifestRoot>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="baselogging.cpp" />
+    <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CameraModel.cpp" />
+    <ClCompile Include="Colormap.cpp" />
+    <ClCompile Include="Common.cpp" />
+    <ClCompile Include="graph_cut.cpp" />
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="log_widget.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="basemath.cpp" />
+    <ClCompile Include="meshing.cpp" />
+    <ClCompile Include="misc.cpp" />
+    <ClCompile Include="ModelViewerWidget.cpp" />
+    <ClCompile Include="ply.cpp" />
+    <ClCompile Include="Point3D.cpp" />
+    <ClCompile Include="PointLinePainter.cpp" />
+    <ClCompile Include="Reconstruction.cpp" />
+    <ClCompile Include="basestring.cpp" />
+    <ClCompile Include="settings.cpp" />
+    <ClCompile Include="basethreading.cpp" />
+    <ClCompile Include="settings_widget.cpp" />
+    <ClCompile Include="thread_control_widget.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="Track.cpp" />
+    <ClCompile Include="types.cpp" />
+    <ClCompile Include="VisibilityPyramid.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="baselogging.h" />
+    <ClInclude Include="basetools.h" />
+    <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CameraModel.h" />
+    <ClInclude Include="Colormap.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="endian.h" />
+    <ClInclude Include="graph_cut.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="basemath.h" />
+    <ClInclude Include="log_widget.h" />
+    <ClInclude Include="meshing.h" />
+    <ClInclude Include="misc.h" />
+    <ClInclude Include="ply.h" />
+    <ClInclude Include="Point2D.h" />
+    <ClInclude Include="Point3D.h" />
+    <ClInclude Include="PointLinePainter.h" />
+    <ClInclude Include="progressbar.h" />
+    <ClInclude Include="Reconstruction.h" />
+    <ClInclude Include="Rigid3D.h" />
+    <ClInclude Include="settings.h" />
+    <QtMoc Include="settings_widget.h" />
+    <ClInclude Include="Sim3D.h" />
+    <ClInclude Include="basestring.h" />
+    <ClInclude Include="basethreading.h" />
+    <ClInclude Include="thread_control_widget.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="Track.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="VisibilityPyramid.h" />
+    <QtMoc Include="MainWindow.h" />
+    <ClInclude Include="ModelViewerWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="Resource.qrc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "sfrecon-meshing",
+  "version-string": "1.0.0",
+  "description": "Delaunay graph-cut surface reconstruction for SF-Recon COLMAP tracks",
+  "dependencies": [
+    "boost-filesystem",
+    "boost-graph",
+    "ceres",
+    "cgal",
+    "eigen3",
+    "gflags",
+    "glog",
+    "metis",
+    "tbb"
+  ]
+}
