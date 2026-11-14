@@ -4,14 +4,15 @@ This package contains a prebuilt Windows x64 version of `FeedbackRTSfM.exe`.
 
 ## Run
 
-1. Keep the EXE, DLL files, and plugin directories together.
-2. Put a complete COLMAP TXT or BIN model in `../models/river`, or edit
-   `settings.ini` to point to another model directory.
-3. Start `FeedbackRTSfM.exe`.
+1. Extract the complete ZIP archive.
+2. Put `cameras.txt`, `images.txt`, and `points3D.txt` in `models/river`.
+   A complete COLMAP BIN model can be used instead.
+3. Start `Release/FeedbackRTSfM.exe`. Keep the EXE, DLL files, and plugin
+   directories together inside `Release`.
 4. Click **Load Model**.
 5. Click **Calculate Mesh**.
 
-The default output is `../models/river/mesh.ply`.
+The default output is `models/river/mesh.ply`.
 
 If TXT and BIN files are both present, the application loads the BIN files
 first. Remove stale BIN files when testing newly generated TXT tracks.
@@ -25,4 +26,5 @@ General Public License v3.0 or later. See `LICENSE` and
 
 The executable is currently unsigned, so Windows may display an unknown
 publisher warning.
+
 
