@@ -36,6 +36,9 @@
 # Local datasets and generated meshes
 /models/*
 !/models/README.md
+!/models/river/
+/models/river/*
+!/models/river/README.md
 *.ply
 
 # Papers are cited from their original sources instead of redistributed
@@ -49,3 +52,4 @@
 Thumbs.db
 Desktop.ini
 .DS_Store
+
