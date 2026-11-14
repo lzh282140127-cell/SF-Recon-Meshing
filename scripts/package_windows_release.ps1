@@ -62,21 +62,26 @@ if (-not $tempRoot.StartsWith($systemTemp, [System.StringComparison]::OrdinalIgn
 }
 
 $packageRoot = Join-Path $tempRoot "SF-Recon-Meshing-Windows-x64"
+$packageRuntime = Join-Path $packageRoot "Release"
+$packageModel = Join-Path $packageRoot "models\river"
 $archivePath = Join-Path $output $ArchiveName
 
 try {
     [void][System.IO.Directory]::CreateDirectory($packageRoot)
+    [void][System.IO.Directory]::CreateDirectory($packageRuntime)
+    [void][System.IO.Directory]::CreateDirectory($packageModel)
 
     foreach ($name in $runtimeFiles) {
-        Copy-Item -LiteralPath (Join-Path $runtime $name) -Destination $packageRoot
+        Copy-Item -LiteralPath (Join-Path $runtime $name) -Destination $packageRuntime
     }
     foreach ($name in $pluginDirs) {
-        Copy-Item -LiteralPath (Join-Path $runtime $name) -Destination $packageRoot -Recurse
+        Copy-Item -LiteralPath (Join-Path $runtime $name) -Destination $packageRuntime -Recurse
     }
 
     Copy-Item -LiteralPath (Join-Path $repoRoot "LICENSE") -Destination $packageRoot
     Copy-Item -LiteralPath (Join-Path $repoRoot "THIRD_PARTY_NOTICES.md") -Destination $packageRoot
     Copy-Item -LiteralPath (Join-Path $repoRoot "packaging\README-Windows.md") -Destination $packageRoot
+    Copy-Item -LiteralPath (Join-Path $repoRoot "models\river\README.md") -Destination $packageModel
 
     if (Test-Path -LiteralPath $archivePath) {
         Remove-Item -LiteralPath $archivePath
@@ -96,3 +101,4 @@ finally {
         Remove-Item -LiteralPath $tempRoot -Recurse -Force
     }
 }
+
